@@ -2,10 +2,8 @@ package base;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Method;
 
 import utils.Config;
-import utils.Excelutil;
 
 public class ConfigProperty {
 

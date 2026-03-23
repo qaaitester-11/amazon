@@ -19,8 +19,8 @@ public class LoginTest  extends BaseTest {
 		getExtentTest().info("Starting login test");
 			
 		LoginPage loginPage = new LoginPage(getDriver(), getExtentTest());
-		loginPage.enterUsername(ConfigProperty.getProperty("username"));
-		loginPage.enterPassword(ConfigProperty.getProperty("password"));
+		loginPage.enterUsername(getProperty("username"));
+		loginPage.enterPassword(getProperty("password"));
 		loginPage.clickLogin();
 		Thread.sleep(5000);
 		//loginPage.verifyLogin("test user");

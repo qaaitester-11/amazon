@@ -111,8 +111,8 @@ public class BaseTest extends ConfigProperty {
 		th.set(extentTest);
 
 		driverThreadLocal.get().manage().window().maximize();
-		System.out.println("Navigating to URL: " + ConfigProperty.getProperty("app.url"));
-		driverThreadLocal.get().get(ConfigProperty.getProperty("app.url"));
+		System.out.println("Navigating to URL: " + getProperty("app.url"));
+		driverThreadLocal.get().get(getProperty("app.url"));
 
 	}
 	
