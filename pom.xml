@@ -58,7 +58,7 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 			<version>5.4.0</version>
-			<scope>compile</scope>
+			
 		</dependency>
 
 		<!-- Source: https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
@@ -66,7 +66,7 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>5.4.0</version>
-			<scope>compile</scope>
+			
 		</dependency>
 
 		<dependency>
@@ -88,7 +88,7 @@
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>5.1.2</version>
-			<scope>compile</scope>
+			
 		</dependency>
 
 

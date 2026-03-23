@@ -50,6 +50,7 @@ public class BaseTest extends ConfigProperty {
 		String browser = values.get("browser");
 
 		String run = System.getProperty("runmode");
+		System.out.println("Run mode: " + run);
 
 		if (run != null && run.equalsIgnoreCase("grid")) {
 			
@@ -114,10 +115,14 @@ public class BaseTest extends ConfigProperty {
 		driverThreadLocal.get().get(ConfigProperty.getProperty("app.url"));
 
 	}
+	
+	public WebDriver getDriver() {
+		return driverThreadLocal.get();
+	}
 
 	@AfterMethod
 	public void tearDown() {
-		if (DriverFactory.getDriver() != null) {
+		if (driverThreadLocal.get() != null) {
 			driverThreadLocal.get().quit();
 		}
 	}
