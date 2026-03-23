@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="LoginTestSuite" parallel="tests" thread-count="2">
+
+
+
+	<test name="LoginTestChromes">
+		<parameter name="browser" value="chrome" />
+
+		<classes>
+			<class name="tests.AdminTest" />
+
+		</classes>
+	</test>
+
+
+
+	<test name="LoginTestfirefox">
+		<parameter name="browser" value="firefox" />
+
+		<classes>
+			<class name="tests.LoginTest" />
+
+		</classes>
+	</test>
+
+
+
+
+
+
+</suite>
