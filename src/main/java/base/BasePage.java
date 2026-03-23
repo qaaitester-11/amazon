@@ -12,6 +12,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 import exception.Webelement;
 
 public class BasePage extends ConfigProperty {
@@ -22,6 +25,7 @@ public class BasePage extends ConfigProperty {
 	private WebDriver driver;
 	private WebDriverWait explicitWait;
 	private FluentWait<WebDriver> fluentwait;
+	private ExtentTest extentTest;
 
 	public WebDriver getDriver() {
 		return driver;
@@ -33,7 +37,7 @@ public class BasePage extends ConfigProperty {
 
 	}
 
-	public BasePage(WebDriver driver) {
+	public BasePage(WebDriver driver, ExtentTest extentTest) {
 
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -41,6 +45,7 @@ public class BasePage extends ConfigProperty {
 		fluentwait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
 				.withTimeout(java.time.Duration.ofSeconds(20)).pollingEvery(java.time.Duration.ofSeconds(2))
 				.ignoring(org.openqa.selenium.NoSuchElementException.class);
+		this.extentTest = extentTest;
 
 	}
 
@@ -77,8 +82,10 @@ public class BasePage extends ConfigProperty {
 			ele.sendKeys(text);
 
 		} catch (Exception e) {
+			getExtentTest().log(Status.FAIL, "Clicked login button");
 
 			throw new WebDriverException("element not found");
+			
 
 		}
 
@@ -108,6 +115,10 @@ public class BasePage extends ConfigProperty {
 
 		el.click();
 
+	}
+	
+	public ExtentTest getExtentTest() {
+		return extentTest;
 	}
 
 }

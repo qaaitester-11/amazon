@@ -9,16 +9,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+
 import base.BasePage;
 import tests.AdminTest;
+import utils.screenshotUtil;
 
 public class LoginPage extends BasePage{
 	
-	 private static final Logger logger = org.apache.logging.log4j.LogManager.getLogger(AdminTest.class);
+	private static final Logger logger = org.apache.logging.log4j.LogManager.getLogger(AdminTest.class);
 
 
-	public LoginPage(WebDriver driver) {
-		super(driver);
+	public LoginPage(WebDriver driver, ExtentTest extentTest) {
+		super(driver, extentTest);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -55,10 +60,17 @@ public class LoginPage extends BasePage{
 
 	}
 
-	public void clickLogin() {
+	public void clickLogin() throws InterruptedException {
 
 		clickElement(loginButton);
+		
+		String screenshotPath = screenshotUtil.captureScreenshot(getDriver(), "LoginPage");
+		
+		getExtentTest().log(Status.INFO, MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 
+		getExtentTest().log(Status.PASS, "Clicked login button");
+		
+		Thread.sleep(5000);
 	}
 
 	public void verifyLogin(String expectedUsername) {

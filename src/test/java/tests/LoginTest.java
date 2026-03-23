@@ -15,8 +15,10 @@ public class LoginTest  extends BaseTest {
 	
 	@Test
 	public void loginTest2() throws InterruptedException, FileNotFoundException, IOException {
+		
+		getExtentTest().info("Starting login test");
 			
-		LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+		LoginPage loginPage = new LoginPage(DriverFactory.getDriver(), getExtentTest());
 		loginPage.enterUsername(ConfigProperty.getProperty("username"));
 		loginPage.enterPassword(ConfigProperty.getProperty("password"));
 		loginPage.clickLogin();

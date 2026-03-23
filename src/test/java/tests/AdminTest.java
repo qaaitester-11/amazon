@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 import base.BaseTest;
 import base.DriverFactory;
 import pages.LoginPage;
-import utils.Excelutil;
 
 public class AdminTest extends BaseTest {
 	
@@ -31,7 +30,7 @@ public class AdminTest extends BaseTest {
 		
 		logger.info("Starting test: Verifyalreadyadmin with data: " + data);
 
-		LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+		LoginPage loginPage = new LoginPage(DriverFactory.getDriver(), getExtentTest());
 		loginPage.enterUsername(data.get("Employeename"));
 		Thread.sleep(2000);
 		loginPage.enterPassword(data.get("status"));
